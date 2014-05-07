@@ -2,6 +2,7 @@
 \usepackage{latexsym}
 \usepackage{rotating}
 \usepackage{amsmath}
+% Modified from MUN template
 % Try uncommenting the following line if fonts don't
 % display correctly in the PDF file.
 %\usepackage{pslatex} 
@@ -37,12 +38,12 @@
 
 % Almost everything is double spaced.
 %
-\newcommand{\spacing}{1.8}
+\newcommand{\spacing}{1.4}
 \renewcommand{\baselinestretch}{\spacing}
 
 % Footnotes are to be single spaced.
 %
-\newcommand{\munfootnote}[1]{%
+\newcommand{\ntufootnote}[1]{%
 	\renewcommand{\baselinestretch}{1.0}%
 	\normalsize
 	\footnote{#1}%
@@ -53,12 +54,12 @@
 % Lengthy quotes must also be single spaced.
 % We provide a parameter for the citation label too.
 %
-\newenvironment{munquote}[1][]{%
+\newenvironment{ntuquote}[1][]{%
 	\renewcommand{\baselinestretch}{1.0}%
 	\normalsize
-	\def\muncite{#1}
+	\def\ntucite{#1}
 	\vspace{1.5mm}
-	\begin{quote}\sl``}{''\muncite
+	\begin{quote}\sl``}{''\ntucite
 	\end{quote}
 	\renewcommand{\baselinestretch}{\spacing}%
 	\normalsize
@@ -107,10 +108,10 @@ Nanyang Technological University
 \end{center}
 }
 
-% The \munepsfig command is used to insert a new EPS figure 
+% The \ntuepsfig command is used to insert a new EPS figure 
 % into our document.  Usage is:
 %
-%	\munepsfig[args]{filename}{caption}
+%	\ntuepsfig[args]{filename}{caption}
 %
 % where:
 %	- the optional 'args' argument is passed to the
@@ -123,13 +124,13 @@ Nanyang Technological University
 %	  with the text 'fig:' prepended.
 %
 % Sample Usage:
-% 	\munepsfig[scale=0.5,angle=90]{barchart}{Population over time}
+% 	\ntuepsfig[scale=0.5,angle=90]{barchart}{Population over time}
 
 % inserts the EPS file 'figures/barchart.eps' reduced in size by 50%
 % rotated 90 degrees and with the caption "Popuation over Time."
 % We can refer to that figure as Figure~\ref{fig:barchart} in the text.
 %
-\newcommand{\munmultiepsfig}[5][scale=1.0]{%
+\newcommand{\ntumultiepsfig}[5][scale=1.0]{%
 	\begin{figure}[!htbp]
 		\centering
 		\vspace{2mm}
@@ -147,7 +148,7 @@ Nanyang Technological University
 	\end{figure}
 }
 
-\newcommand{\munepsfig}[3][scale=1.0]{%
+\newcommand{\ntuepsfig}[3][scale=1.0]{%
 	\begin{figure}[!htbp]
 		\centering
 		\vspace{2mm}
@@ -157,11 +158,11 @@ Nanyang Technological University
 	\end{figure}
 }
 
-% \munlepsfig command inserts a figure in landscape mode.  The
+% \ntulepsfig command inserts a figure in landscape mode.  The
 % entire page is rotated to accommodate the figure.  The arguments
-% are the same as for \munepsfig, above
+% are the same as for \ntuepsfig, above
 %
-\newcommand{\munlepsfig}[3][scale=1.0]{%
+\newcommand{\ntulepsfig}[3][scale=1.0]{%
 	\begin{sidewaysfigure}[!htbp]
 		\centering
 		\vspace{2mm}
@@ -171,12 +172,12 @@ Nanyang Technological University
 	\end{sidewaysfigure}
 }
 
-% The 'muntxtfig' environment is used to insert 'textual' figures
+% The 'ntutxtfig' environment is used to insert 'textual' figures
 % into our document, such as brief source code snippets.  Usage is:
 %
-%	\begin{muntxtfig}[spacing]{label}{caption}{width}
+%	\begin{ntutxtfig}[spacing]{label}{caption}{width}
 %	  text for 'figure'
-%	\end{muntxtfig}
+%	\end{ntutxtfig}
 %
 % where:
 %	- 'spacing' is a number representing the baselinestretch
@@ -189,15 +190,15 @@ Nanyang Technological University
 %	  is formatted.
 %
 % Sample usage:
-% \begin{muntxtfig}[1.0]{code}{Hello World}{0.5\textwidth}
+% \begin{ntutxtfig}[1.0]{code}{Hello World}{0.5\textwidth}
 %   Some text
-% \end{muntxtfig}
+% \end{ntutxtfig}
 %
-\newenvironment{muntxtfig}[4][\spacing]{%
+\newenvironment{ntutxtfig}[4][\spacing]{%
 	\begin{figure}[!htbp]
 		\centering
-		\def\muncaption{#3}%
-		\def\munlabel{#2}%
+		\def\ntucaption{#3}%
+		\def\ntulabel{#2}%
 		\renewcommand{\baselinestretch}{#1}%
 		\normalsize%
 		\begin{minipage}{#4}
@@ -208,17 +209,17 @@ Nanyang Technological University
 		\end{minipage}
 		\renewcommand{\baselinestretch}{\spacing}%
 		\normalsize%
-		\caption{\muncaption}
-		\label{fig:\munlabel}
+		\caption{\ntucaption}
+		\label{fig:\ntulabel}
 	\end{figure}
 }
 
-% The 'muntab' environment is used to insert a new table into our document.
+% The 'ntutab' environment is used to insert a new table into our document.
 % Usage is:
 %
-%	\begin{muntab}{table_format}{label}{caption}
+%	\begin{ntutab}{table_format}{label}{caption}
 %        table contents
-%       \end{muntab}
+%       \end{ntutab}
 %
 % where:
 %	- 'label' is the label used to reference the Table.
@@ -227,7 +228,7 @@ Nanyang Technological University
 %	- 'caption' is the caption placed above the Table.
 %
 %
-\newenvironment{muntab}[3]{%
+\newenvironment{ntutab}[3]{%
 	\begin{table}[!htbp]
 		\centering
 		\caption{#3}
@@ -239,10 +240,10 @@ Nanyang Technological University
 	\end{table}
 }
 
-% The 'munltab' environment is like muntab, but displays the table
-% in landscape mode on its own page.  See muntab environment for usage.
+% The 'ntultab' environment is like ntutab, but displays the table
+% in landscape mode on its own page.  See ntutab environment for usage.
 %
-\newenvironment{munltab}[3]{%
+\newenvironment{ntultab}[3]{%
 	\begin{sidewaystable}
 		\centering
 		\caption{#3}
@@ -254,19 +255,19 @@ Nanyang Technological University
 	\end{sidewaystable}
 }
 
-% The \muneqn environment is used to add an equation to the thesis.
+% The \ntueqn environment is used to add an equation to the thesis.
 % Usage is:
 %
-%	\begin{muneqn}{label}
+%	\begin{ntueqn}{label}
 %         equation body
-%	\end{muneqn}
+%	\end{ntueqn}
 %
 % where:
 %	- 'label' is the label used to reference the Equation.
 %	   We can refer to the equation as Table~\ref{eqn:label} in
 %          the text.
 %
-\newenvironment{muneqn}[1]{%
+\newenvironment{ntueqn}[1]{%
 	\begin{equation}
 		\label{eqn:#1}
 }{
